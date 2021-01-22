@@ -44,21 +44,36 @@ Open by Downloading or Cloning
 - In the terminal run command `dotnet build`
 - In the terminal run command `dotnet run`
 
-AppSettings
-* This project requires an AppSettings file. Create your `appsettings.json` file in the main `ParksAPI` directory. 
-* Format your `appsettings.json` file as follows including your unique password that was created at MySqlWorkbench installation:
-```
+  #### AppSettings
+
+  1) Create a new file in the CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory named `appsettings.json`
+  2) Add in the following code snippet to the new appsettings.json file:
+  
+  `
 {
-  "ConnectionStrings":{
-      "DefaultConnection": "Server=localhost;Port=3306;database=travel;uid=root;pwd=<YourPassword>;"
-  }
+    "Logging": {
+        "LogLevel": {
+        "Default": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=coffee_tracker_api;uid=root;pwd=YourPassword;"
+    }
 }
-```
+  `
+  3) Change the server, port, and user id as necessary. Replace 'YourPassword' with relevant MySQL password (set at installation of MySQL).
 
 * Update the Server, Port, and User ID as needed.
 
 Import Database using Entity Framework Core
 * Type `dotnet ef database update` into the terminal to create your database tables.
+
+## 🛰️ API Documentation
+Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
+
+### Using Swagger Documentation 
+To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
 # 🪲 Bugs / Issues
 
@@ -77,6 +92,7 @@ Import Database using Entity Framework Core
 * C#
 * Razor
 * Entity Framework Core
+* Swashbuckle
 * Swagger
 * Nuget Versioning
 * MySql
