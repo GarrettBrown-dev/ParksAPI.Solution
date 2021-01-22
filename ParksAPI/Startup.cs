@@ -19,6 +19,8 @@ namespace ParksAPI
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -41,6 +43,15 @@ namespace ParksAPI
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.DefaultApiVersion = new ApiVersion(1, 0);
             });
+
+            services.AddCors(options =>
+           {
+               options.AddPolicy(MyAllowSpecificOrigins, builder =>
+               {
+                   builder.WithOrigins("");
+               });
+           });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +78,7 @@ namespace ParksAPI
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
                 c.RoutePrefix = string.Empty;
             });
