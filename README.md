@@ -75,6 +75,64 @@ Explore the API endpoints in Postman or a browser. You will not be able to utili
 ### Using Swagger Documentation 
 To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
+..........................................................................................
+
+### Endpoints
+Base URL: `https://localhost:5000`
+
+#### HTTP Request Structure
+```
+GET /api/{component}
+POST /api/{component}
+GET /api/{component}/{id}
+PUT /api/{component}/{id}
+DELETE /api/{component}/{id}
+```
+
+#### Example Query
+```
+https://localhost:5000/api/park/3
+```
+
+#### Sample JSON Response
+```
+{
+    "ParkId": 3,
+    "ParkName": "Crater Lake National Park",
+    "ParkLocation": "Southern Oregon, USA",
+    "Description": "A massive lake that lies in the remnants of the ancient volcano Mazama. The ninth deepest lake in the world..",
+}
+```
+
+..........................................................................................
+
+### Parks
+Access information on state and national parks.
+
+#### HTTP Request
+```
+GET /api/park
+POST /api/park
+GET /api/park/{id}
+PUT /api/park/{id}
+DELETE /api/park/{id}
+```
+
+#### Path Parameters
+| Parameter | Type | Default | Required | Description |
+| :---: | :---: | :---: | :---: | --- |
+| ParkName | string | none | false | Return matches by name.
+| ParkLocation | string | none | false | Return any park from a specific location. |
+| ParkId | int | none | false | Return park matches with a specific ID. |
+
+#### Example Query
+```
+https://localhost:5000/api/park/?parkname=fortwordenstatepark&location=porttownsendwashington
+```
+
+..........................................................................................
+
+
 # 🪲 Bugs / Issues
 
 * None currently to note
