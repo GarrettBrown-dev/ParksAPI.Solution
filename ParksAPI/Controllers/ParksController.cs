@@ -55,4 +55,21 @@ namespace ParksAPI.Controllers
         }
 
         //PUT api/park/3
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Park park)
+        {
+            park.ParkId = id;
+            _db.Entry(park).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
 
+        //DELETE api/park/3
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+            _db.Parks.Remove(parkToDelete);
+            _db.SaveChanges();
+        }
+    }
+}
