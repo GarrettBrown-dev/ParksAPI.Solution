@@ -75,8 +75,6 @@ Explore the API endpoints in Postman or a browser. You will not be able to utili
 ### Using Swagger Documentation 
 To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
-..........................................................................................
-
 ### Endpoints
 Base URL: `https://localhost:5000`
 
