@@ -44,13 +44,7 @@ namespace ParksAPI
                 o.DefaultApiVersion = new ApiVersion(1, 0);
             });
 
-            services.AddCors(options =>
-           {
-               options.AddPolicy(MyAllowSpecificOrigins, builder =>
-               {
-                   builder.WithOrigins("");
-               });
-           });
+            services.AddCors();
 
         }
 
@@ -67,6 +61,8 @@ namespace ParksAPI
                 app.UseHsts();
             }
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             // app.UseHttpsRedirection();
             app.UseMvc();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -82,6 +78,12 @@ namespace ParksAPI
                 c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
                 c.RoutePrefix = string.Empty;
             });
+
+            // global cors policy
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
         }
     }
 }
