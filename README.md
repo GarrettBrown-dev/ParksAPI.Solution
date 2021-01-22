@@ -44,7 +44,7 @@ Open by Downloading or Cloning
 - In the terminal run command `dotnet build`
 - In the terminal run command `dotnet run`
 
-  #### AppSettings
+  # AppSettings
 
   1) Create a new file in the CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory named `appsettings.json`
   2) Add in the following code snippet to the new appsettings.json file:
@@ -102,8 +102,6 @@ https://localhost:5000/api/park/3
 }
 ```
 
-..........................................................................................
-
 ### Parks
 Access information on state and national parks.
 
@@ -127,9 +125,6 @@ DELETE /api/park/{id}
 ```
 https://localhost:5000/api/park/?parkname=fortwordenstatepark&location=porttownsendwashington
 ```
-
-..........................................................................................
-
 
 # 🪲 Bugs / Issues
 
