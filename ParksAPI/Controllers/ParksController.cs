@@ -3,6 +3,7 @@ using System.Linq;
 using ParksAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace ParksAPI.Controllers
 {
@@ -41,6 +42,7 @@ namespace ParksAPI.Controllers
         }
 
         [ApiVersion("2.0")]
+        [EnableCors("AnotherPolicy")]
         [Route("api/{v:ApiVersion}/parks")]
         [ApiController]
         public class ParksV2Controller : ControllerBase
