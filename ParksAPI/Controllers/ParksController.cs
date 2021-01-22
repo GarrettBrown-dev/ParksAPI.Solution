@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ParksAPI.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/parks")]
     [ApiController]
     public class ParksController : ControllerBase
@@ -39,37 +40,49 @@ namespace ParksAPI.Controllers
             return query.ToList();
         }
 
-        // POST api/parks
-        [HttpPost]
-        public void Post([FromBody] Park park)
+        [ApiVersion("2.0")]
+        [Route("api/{v:ApiVersion}/parks")]
+        [ApiController]
+        public class ParksV2Controller : ControllerBase
         {
-            _db.Parks.Add(park);
-            _db.SaveChanges();
-        }
+            private ParksAPIContext _db;
+            public ParksV2Controller(ParksAPIContext db)
+            {
+                _db = db;
+            }
 
-        //GET api/parks
-        [HttpGet("{id}")]
-        public ActionResult<Park> Get(int id)
-        {
-            return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
-        }
+            // POST api/parks
+            [HttpPost]
+            public void Post([FromBody] Park park)
+            {
+                _db.Parks.Add(park);
+                _db.SaveChanges();
+            }
 
-        //PUT api/park/3
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Park park)
-        {
-            park.ParkId = id;
-            _db.Entry(park).State = EntityState.Modified;
-            _db.SaveChanges();
-        }
+            //GET api/parks
+            [HttpGet("{id}")]
+            public ActionResult<Park> Get(int id)
+            {
+                return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+            }
 
-        //DELETE api/park/3
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
-            _db.Parks.Remove(parkToDelete);
-            _db.SaveChanges();
+            //PUT api/park/3
+            [HttpPut("{id}")]
+            public void Put(int id, [FromBody] Park park)
+            {
+                park.ParkId = id;
+                _db.Entry(park).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+
+            //DELETE api/park/3
+            [HttpDelete("{id}")]
+            public void Delete(int id)
+            {
+                var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+                _db.Parks.Remove(parkToDelete);
+                _db.SaveChanges();
+            }
         }
     }
 }
