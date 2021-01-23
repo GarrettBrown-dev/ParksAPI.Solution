@@ -10,19 +10,24 @@ namespace ParksAPI.Controllers
     [ApiVersion("1.0")]
     [Route("api/parks")]
     [ApiController]
-    public class ParksController : ControllerBase
+    public class ParksV1Controller : ControllerBase
     {
         private ParksAPIContext _db;
-        public ParksController(ParksAPIContext db)
+        public ParksV1Controller(ParksAPIContext db)
         {
             _db = db;
         }
 
         //GET api/parks
         [HttpGet]
-        public ActionResult<IEnumerable<Park>> GetAction(string parkLocation, string parkName, string description)
+        public ActionResult<IEnumerable<Park>> GetAction(int parkId, string parkLocation, string parkName, string description)
         {
             var query = _db.Parks.AsQueryable();
+
+            if (parkId != 0)
+            {
+                query = query.Where(entry => entry.ParkId == parkId);
+            }
 
             if (parkLocation != null)
             {
