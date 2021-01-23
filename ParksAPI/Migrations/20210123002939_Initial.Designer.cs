@@ -8,8 +8,8 @@ using ParksAPI.Models;
 namespace ParksAPI.Migrations
 {
     [DbContext(typeof(ParksAPIContext))]
-    [Migration("20210122222925_Versioning")]
-    partial class Versioning
+    [Migration("20210123002939_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
