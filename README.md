@@ -46,7 +46,7 @@ Open by Downloading or Cloning
 
   # AppSettings
 
-  1) Create a new file in the CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory named `appsettings.json`
+  1) Create a new file in the ParksAPI.Solution/ParksAPI directory named `appsettings.json`
   2) Add in the following code snippet to the new appsettings.json file:
   
   `
@@ -58,7 +58,7 @@ Open by Downloading or Cloning
     },
     "AllowedHosts": "*",
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Port=3306;database=coffee_tracker_api;uid=root;pwd=YourPassword;"
+        "DefaultConnection": "Server=localhost;Port=3306;database=parks_api;uid=root;pwd=YourPassword;"
     }
 }
   `
