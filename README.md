@@ -21,7 +21,7 @@
 
 # ℹ️ Description
 
-This application will allow the user to enter call data on National Parks from a backend API equipped with Swagger Documentation and Versioning. It will be backend only, but may become a full fledged site should time permit.
+This application will allow the user to enter call data on National Parks from a backend API equipped with Swagger Documentation, CORS and Versioning. It will be backend only, but may become a full fledged site should time permit.
 
 # 💾 Installation Requirements
 
@@ -72,6 +72,10 @@ Import Database using Entity Framework Core
 ## 🛰️ API Documentation
 Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
 
+### Note on CORS
+CORS is a W3C standard that allows a server to relax the same-origin policy. It is not a security feature, CORS relaxes security. It allows a server to explicitly allow some cross-origin requests while rejecting others. An API is not safer by allowing CORS.
+For more information or to see how CORS functions, see the [Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2#how-cors).
+
 ### Using Swagger Documentation 
 To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
@@ -120,6 +124,7 @@ DELETE /api/park/{id}
 | ParkName | string | none | false | Return matches by name.
 | ParkLocation | string | none | false | Return any park from a specific location. |
 | ParkId | int | none | false | Return park matches with a specific ID. |
+| Description | string | none | false | Return matches by description text... Not recommended as you have to type the whole chunk of text from the data, but included for good measure. |
 
 #### Example Query
 ```
@@ -148,6 +153,7 @@ https://localhost:5000/api/park/?parkname=fortwordenstatepark&location=porttowns
 * Nuget Versioning
 * MySql
 * MySql Workbench
+* CORS
 
 </details>
 
