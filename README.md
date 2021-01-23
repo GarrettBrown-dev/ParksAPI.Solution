@@ -1,4 +1,4 @@
-# _Travel Blog_
+# _Parks API_
 
 <p align="center">
     <br>
@@ -11,7 +11,7 @@
   <small>Last Updated: January 22nd, 2021</small>
 </p>
 
-#### _Building an Api with Versioning, and/or Swagger._ 
+#### _Building an Api with Versioning, CORS and Swagger._ 
 
 # 🧑‍💻 Contributers
 
