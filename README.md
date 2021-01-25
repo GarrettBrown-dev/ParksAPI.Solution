@@ -77,7 +77,7 @@ CORS is a W3C standard that allows a server to relax the same-origin policy. It 
 For more information or to see how CORS functions, see the [Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2#how-cors).
 
 ### Using Swagger Documentation 
-To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
+To explore the Parks API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
 ### Endpoints
 Base URL: `https://localhost:5000`
